@@ -62,6 +62,8 @@ Modify settings.py
     LOGOUT_URL='/your_url_extension/logout'
     LOGIN_REDIRECT_URL='/'
     LOGOUT_REDIRECT_URL='/'
+    
+    TWYTHON_DJANGO_DEFAULT_EMAIL = 'test@example.com'
 
 Need Twython Help?
 ------------------
