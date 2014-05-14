@@ -11,5 +11,6 @@ class TwitterProfile(models.Model):
         setup, there's really nothing special going on here.
     """
     user = models.OneToOneField(User)
+    screen_name = models.CharField(max_length=200)
     oauth_token = models.CharField(max_length=200)
     oauth_secret = models.CharField(max_length=200)
