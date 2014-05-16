@@ -79,10 +79,10 @@ def thanks(request, redirect_url=settings.LOGIN_REDIRECT_URL):
         profile.oauth_secret = authorized_tokens['oauth_token_secret']
         profile.save()
 
-    user = authenticate(
-        username=authorized_tokens['screen_name'],
-        password=authorized_tokens['oauth_token_secret']
-    )
+    #user = authenticate(
+    #    username=authorized_tokens['screen_name'],
+    #    password=authorized_tokens['oauth_token_secret']
+    #)
     login(request, user)
     return HttpResponseRedirect(redirect_url)
 
