@@ -83,6 +83,7 @@ def thanks(request, redirect_url=settings.LOGIN_REDIRECT_URL):
     #    username=authorized_tokens['screen_name'],
     #    password=authorized_tokens['oauth_token_secret']
     #)
+    user.backend = 'django.contrib.auth.backends.ModelBackend'
     login(request, user)
     return HttpResponseRedirect(redirect_url)
 
