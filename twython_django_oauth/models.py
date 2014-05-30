@@ -4,6 +4,15 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
+class TwitterModel(models.Model):
+    def disconnect_twitter(self):
+        try:
+            tp = self.twitter_profile.first()
+            tp.delete()
+        except TwitterProfile.DoesNotExist:
+            pass
+
+
 class TwitterProfile(models.Model):
     """
         An example Profile model that handles storing the oauth_token and
