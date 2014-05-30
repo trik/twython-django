@@ -11,6 +11,9 @@ class TwitterModel(models.Model):
         except TwitterProfile.DoesNotExist:
             pass
 
+    class Meta:
+        abstract = True
+
 
 class TwitterProfile(models.Model):
     """
