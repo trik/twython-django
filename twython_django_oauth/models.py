@@ -6,7 +6,7 @@ from django.conf import settings
 class TwitterModel(models.Model):
     def disconnect_twitter(self):
         try:
-            tp = self.twitter_profile.first()
+            tp = TwitterProfile.objects.get(user=self)
             tp.delete()
         except TwitterProfile.DoesNotExist:
             pass
