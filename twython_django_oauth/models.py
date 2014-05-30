@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-
-User = get_user_model()
+from django.conf import settings
 
 
 class TwitterModel(models.Model):
@@ -19,7 +18,7 @@ class TwitterProfile(models.Model):
         oauth_secret in relation to a user. Adapt this if you have a current
         setup, there's really nothing special going on here.
     """
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL)
     screen_name = models.CharField(max_length=200)
     oauth_token = models.CharField(max_length=200)
     oauth_secret = models.CharField(max_length=200)
