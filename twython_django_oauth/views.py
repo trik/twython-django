@@ -71,7 +71,9 @@ def thanks(request, redirect_url=settings.LOGIN_REDIRECT_URL):
             res = User.objects.filter(username="%s%d" % (username, num))
             if res.count() == 0:
                 username = "%s%d" % (username, num)
-        user = User.objects.create_user(username, "fjdsfn@jfndjfn.com", authorized_tokens['oauth_token_secret'])
+        default_email = settings.TWYTHON_DJANGO_DEFAULT_EMAIL if 'TWYTHON_DJANGO_DEFAULT_EMAIL' in settings \
+            else "fjdsfn@jfndjfn.com"
+        user = User.objects.create_user(username, default_email, authorized_tokens['oauth_token_secret'])
         profile = TwitterProfile()
         profile.user = user
         profile.screen_name = authorized_tokens['screen_name']
